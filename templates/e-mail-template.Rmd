@@ -1,0 +1,29 @@
+---
+title: "Teaching demo e-mail"
+author: "Jeff Oliver"
+date: "8/9/2021"
+output: html_document
+params:
+  first: NULL
+  lesson: NULL
+  date: NULL
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Hi `r params$first`,
+
+
+According to https://pad.carpentries.org/teaching-demos you have signed up to give an online teaching demo on Thursday 08 July 2021 20:00 UTC (See this link for your local time: https://www.timeanddate.com/worldclock/fixedtime.html?msg=Carpentries+Teaching+Demo&iso=20210708T2000). I will be the Instructor Trainer running the session.
+
+I wanted to make it clear that I may give you **any** segment of the lesson you prepared to teach, so you should be ready to teach any part of your chosen lesson. Some people prepare to teach 5 minutes from a particular section and nothing else, and they often have to reschedule as they seldom are assigned the section they have prepared for. A lesson corresponds to a single line in the lesson tables (https://software-carpentry.org/lessons/, http://www.datacarpentry.org/lessons/, and https://librarycarpentry.org/lessons/) and a single repository on GitHub. Some lessons have supplementary modules, but you do not need to be prepared to teach the supplementary modules for your teaching demonstration.
+
+For example, if you have chosen The Unix Shell, I may assign you any episode listed at http://swcarpentry.github.io/shell-novice/.
+
+[**lesson-specific snippet, see below**]
+
+Please visit the Etherpad (https://pad.carpentries.org/teaching-demos) a few minutes before the demo starts.
+
+See you at the demo session,
