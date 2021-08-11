@@ -5,9 +5,10 @@
 R code for the generation of e-mail messages to send to trainees for teaching 
 demonstrations that are part of the 
 [Carpentries Instructor Training](https://carpentries.github.io/instructor-training/) 
-checkout process. Note this will _not_ send any e-mails, it will only create 
-html files that you can use to copy and paste into e-mail messages to send to 
-trainees.
+checkout process. The e-mail is slightly modified from the [Carpentries-provided
+template](https://carpentries.github.io/instructor-training/). Note this will 
+_not_ send any e-mails, it will only create html files that you can use to copy 
+and paste into e-mail messages to send to trainees.
 
 ## Dependencies
 
@@ -44,13 +45,18 @@ as the e-mail address the trainee provided (it appears near the top of the
 output html page). By default, the html files in the output folder are ignored 
 by Git; I suggest you leave it that way.
 
-## Caveat
+## Caveats
 
-The e-mail message includes a lesson-specific snippet based on the URL provided 
++ The e-mail message includes a lesson-specific snippet based on the URL provided 
 by the trainee. These snippets are ones that I have written for demos that I 
 have run but are **not exhaustive**. That is, there are Carpentries lessons 
 that lack lesson snippets in the file data/lesson-snippets.csv. If you have a 
 trainee who provides a URL for one of those lessons missing a snippet, you will 
 need to add this snippet yourself (there will be bold text in the e-mail 
 message indicating where this should go). If this happens to you, maybe 
-consider submitting a pull request or opening an issue with that information?
+consider submitting a pull request or opening an issue with that information, 
+so that I can update the snippet data file?
++ Identifying the correct snippet to use is based on pattern matching of URLs. 
+If an incorrect URL was provided, a match won't be found, and you'll need to 
+add the snippet yourself. You can see the URLs for which snippets are provided 
+by looking at the file data/lesson-snippets.csv.
