@@ -1,7 +1,6 @@
 ---
 title: "Teaching demo e-mail"
-author: "Jeff Oliver"
-date: "8/9/2021"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: html_document
 params:
   first: NULL
