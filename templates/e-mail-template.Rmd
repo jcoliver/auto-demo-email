@@ -9,6 +9,7 @@ params:
   lesson: NULL
   date_string: NULL
   tzconvert_url: NULL
+  snippet: NULL
 ---
 
 ```{r setup, include=FALSE}
@@ -49,7 +50,7 @@ For example, if you have chosen The Unix Shell, I may assign you any episode
 listed at 
 [http://swcarpentry.github.io/shell-novice/](http://swcarpentry.github.io/shell-novice/).
 
-[**lesson-specific snippet, see below**]
+`r params$snippet``
 
 Please visit the Etherpad 
 [https://pad.carpentries.org/teaching-demos](https://pad.carpentries.org/teaching-demos) 

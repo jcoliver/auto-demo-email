@@ -6,10 +6,25 @@
 library(rmarkdown)
 library(lubridate)
 
+# The only two lines you will likely need to change are these two
+# trainees: update with the location of your trainees file (example format 
+#           is available at data/trainees.csv)
+# demo_date: update the date and time of the demo
 trainees <- read.csv(file = "data/trainees.csv")
 demo_date <- as.POSIXct(x = "2021-08-12 20:00:00", tz = "GMT")
 
+# Shouldn't need to change anything below here
+lesson_snippets <- read.csv(file = "data/lesson-snippets.csv")
 
+# Let's be pedantic and ensure that https is always used over http
+lesson_snippets$url <- gsub(pattern = "http://",
+                            replacement = "https://",
+                            x = lesson_snippets$url)
+
+# Lots of effort here to get a nicely formated description of the day and time 
+# of the teaching demo
+
+# First, get the name of the day the demo occurs
 day_name <- lubridate::wday(x = demo_date, label = TRUE, abbr = FALSE)
 
 # Going to print out the date of the demo for the time zone, here we want the 
@@ -34,8 +49,29 @@ for (i in 1:nrow(trainees)) {
   first <- trainees$first[i]
   last <- trainees$last[i]
   email <- trainees$email[i]
-  # Lesson specific snippet
   
+  # Lesson specific snippet, based on the URL trainee provided
+  lesson_url <- trainees$lesson[i]
+  # Trim off trailing slash (if it is there)
+  if (substr(x = lesson_url, start = nchar(lesson_url), stop = nchar(lesson_url)) == "/") {
+    lesson_url <- substr(x = lesson_url, start = 1, stop = (nchar(lesson_url) - 1))
+  }
+  # Pedantic https!
+  lesson_url <- gsub(pattern = "http://", 
+                     replacement = "https://", 
+                     x = lesson_url)
+  
+  
+  # See if we can get the snippet text based on URL
+  snippet <- lesson_snippets$snippet[lesson_snippets$url == lesson_url]
+  if (length(snippet) != 1) {
+    warning(paste0("There was a problem identifying the corresponding snippet for ", 
+                   first, " ", last, 
+                   ". Either an entry does not exist in data/lesson-snippets.csv ",
+                   "or the provided lesson URL is incorrect. Please add lesson ",
+                   "specific snippet manually to e-mail message"))
+    snippet <- "\n**insert lesson-specific snippet here**\n"
+  }
 
   rmarkdown::render(input = "templates/e-mail-template.Rmd",
                     output_dir = "output",
@@ -43,7 +79,6 @@ for (i in 1:nrow(trainees)) {
                     params = list(first = first,
                                   email = email,
                                   date_string = date_string,
-                                  tzconvert_url = tzconvert_url))
+                                  tzconvert_url = tzconvert_url,
+                                  snippet = snippet))
 }
-
-# While we are here, make the md document for order, too?
