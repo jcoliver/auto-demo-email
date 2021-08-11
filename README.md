@@ -60,8 +60,9 @@ you will need to write and add this snippet yourself. If this occurs, a warning
 message will appear in the console, but the html file with the e-mail message 
 will still be created. (there will be bold text in the e-mail message 
 indicating where the snippet should go). If this happens to you, maybe consider 
-submitting a pull request or opening an issue with that information, so that I 
-can update the snippet data file?
+[submitting a pull request](https://github.com/jcoliver/auto-demo-email/pulls) 
+or [opening an issue](https://github.com/jcoliver/auto-demo-email/issues) with 
+the snippet information, so that I can update the snippet data file?
 + Identifying the correct snippet to use is based on pattern matching of URLs. 
 If an incorrect URL was provided, a match won't be found, and you'll need to 
 add the snippet yourself. You can see the URLs for which snippets are provided 
