@@ -20,6 +20,15 @@ lesson_snippets <- read.csv(file = "data/lesson-snippets.csv")
 lesson_snippets$url <- gsub(pattern = "http://",
                             replacement = "https://",
                             x = lesson_snippets$url)
+# Also, accommodate those URL links that might have trailing slash (by removing
+# the trailing slash); start by identifying those URLs with trailing slashes
+trailing_slash <- substr(x = lesson_snippets$url,
+                         start = nchar(lesson_snippets$url),
+                         stop = nchar(lesson_snippets$url)) == "/"
+# With that logical vector, remove trailing slash from URLs as appropriate
+lesson_snippets$url[trailing_slash] <- substr(x = lesson_snippets$url[trailing_slash],
+                                              start = 1,
+                                              stop = (nchar(lesson_snippets$url[trailing_slash]) - 1))
 
 # Lots of effort here to get a nicely formated description of the day and time 
 # of the teaching demo
