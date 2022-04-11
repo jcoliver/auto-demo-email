@@ -19,6 +19,8 @@ _Paste the following into an e-mail to:_
 
 `r params$email`
 
+Subject: Carpentries Teaching Demo
+
 ***
 
 Hi `r params$first`,
