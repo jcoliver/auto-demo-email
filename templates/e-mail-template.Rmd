@@ -39,8 +39,11 @@ to ensure that your selection is on the list.
 
 `r params$snippet`
 
-Please visit the Etherpad 
-[https://pad.carpentries.org/teaching-demos](https://pad.carpentries.org/teaching-demos) 
-a few minutes before the demo starts.
+Please remember - this is _not_ a high stakes test! This is a friendly 
+opportunity to give and receive feedback on a more polished presentation style. 
+In the event that I ask you to repeat your demo, I will provide this 
+information with clear instructions on what to change in an email to you after 
+the demo. You will only receive qualitative feedback publicly during the demo, 
+not information regarding whether this checkout step is considered complete.
 
 See you at the demo session,
