@@ -10,9 +10,8 @@ library(lubridate)
 #   + trainees: update with the location of your trainees file (example format 
 #               is available at data/trainees.csv)
 #   + demo_date: update the date and time of the demo
-# trainees <- read.csv(file = "data/trainees.csv")
 trainees <- read.csv(file = "~/Desktop/trainees.csv")
-demo_date <- as.POSIXct(x = "2025-01-09 20:00:00", tz = "GMT")
+demo_date <- as.POSIXct(x = "2025-03-13 20:00:00", tz = "GMT")
 
 # Shouldn't need to change anything below here
 lesson_snippets <- read.csv(file = "data/lesson-snippets.csv")
